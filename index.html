@@ -121,12 +121,73 @@
             transform: scale(1.05);
             box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
         }
+        
+        /* Mega Menu Styles */
+        .mega-menu {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            top: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            min-width: 600px;
+            max-width: 800px;
+            z-index: 100;
+        }
+        
+        .mega-menu-trigger:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: all;
+        }
+        
+        .mega-menu-content {
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+        }
+        
+        .dark .mega-menu-content {
+            background: #1f2937;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+        
+        .mega-menu-item {
+            transition: all 0.2s ease;
+        }
+        
+        .mega-menu-item:hover {
+            background: rgba(59, 130, 246, 0.08);
+        }
+        
+        .dark .mega-menu-item:hover {
+            background: rgba(59, 130, 246, 0.15);
+        }
+        
+        .mega-menu-link {
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .mega-menu-link:hover {
+            background: rgba(59, 130, 246, 0.08);
+        }
+        
+        .dark .mega-menu-link:hover {
+            background: rgba(59, 130, 246, 0.15);
+        }
     </style>
 </head>
 <body class="antialiased bg-white dark:bg-gray-900 transition-colors duration-300">
 
     <!-- ============================================ -->
-    <!-- NAVBAR - Sticky Top Navigation -->
+    <!-- NAVBAR - Sticky Top Navigation with Mega Menu -->
     <!-- ============================================ -->
     <nav class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50 transition-colors duration-300">
         <div class="container mx-auto px-6 py-4">
@@ -138,16 +199,225 @@
                     </a>
                 </div>
                 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
+                <!-- Desktop Menu with Mega Menu -->
+                <div class="hidden lg:flex items-center space-x-8 relative">
                     <a href="#home" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300">Home</a>
-                    <a href="#features" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300">Features</a>
+                    
+                    <!-- Products Mega Menu -->
+                    <div class="mega-menu-trigger relative">
+                        <button class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300 flex items-center">
+                            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-menu-content py-6 px-6 mt-2">
+                                <div class="grid grid-cols-3 gap-6">
+                                    <!-- Platform -->
+                                    <div>
+                                        <h3 class="font-bold text-gray-900 dark:text-white mb-3 text-sm uppercase tracking-wide">Platform</h3>
+                                        <ul class="space-y-1">
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-database text-blue-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Database</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-cloud text-purple-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Cloud Storage</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-server text-green-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Hosting</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Analytics -->
+                                    <div>
+                                        <h3 class="font-bold text-gray-900 dark:text-white mb-3 text-sm uppercase tracking-wide">Analytics</h3>
+                                        <ul class="space-y-1">
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-chart-line text-orange-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Analytics</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-chart-pie text-pink-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Reports</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-brain text-indigo-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">AI Insights</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Integrations -->
+                                    <div>
+                                        <h3 class="font-bold text-gray-900 dark:text-white mb-3 text-sm uppercase tracking-wide">Connect</h3>
+                                        <ul class="space-y-1">
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-plug text-yellow-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">API</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-puzzle-piece text-teal-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Plugins</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-cogs text-red-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Automation</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Features Mega Menu -->
+                    <div class="mega-menu-trigger relative">
+                        <button class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300 flex items-center">
+                            Features <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-menu-content py-6 px-6 mt-2">
+                                <div class="grid grid-cols-2 gap-6">
+                                    <!-- Column 1 -->
+                                    <div>
+                                        <ul class="space-y-1">
+                                            <li>
+                                                <a href="#features" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-shield-alt text-blue-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Security</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#features" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-bolt text-yellow-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Performance</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#features" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-users text-orange-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Collaboration</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Column 2 -->
+                                    <div>
+                                        <ul class="space-y-1">
+                                            <li>
+                                                <a href="#features" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-mobile-alt text-green-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Mobile Apps</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#features" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-sync text-purple-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Real-time Sync</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#features" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-globe text-teal-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Global CDN</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resources Mega Menu -->
+                    <div class="mega-menu-trigger relative">
+                        <button class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300 flex items-center">
+                            Resources <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-menu-content py-6 px-6 mt-2">
+                                <div class="grid grid-cols-2 gap-6">
+                                    <!-- Learn -->
+                                    <div>
+                                        <h3 class="font-bold text-gray-900 dark:text-white mb-3 text-sm uppercase tracking-wide">Learn</h3>
+                                        <ul class="space-y-1">
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-book text-blue-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Documentation</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-newspaper text-purple-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Blog</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-graduation-cap text-green-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Tutorials</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Support -->
+                                    <div>
+                                        <h3 class="font-bold text-gray-900 dark:text-white mb-3 text-sm uppercase tracking-wide">Support</h3>
+                                        <ul class="space-y-1">
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-question-circle text-orange-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Help Center</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#contact" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-envelope text-pink-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">Contact</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="mega-menu-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                                                    <i class="fas fa-code text-indigo-600 w-5"></i>
+                                                    <span class="ml-3 text-sm font-medium">API Docs</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <a href="#pricing" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300">Pricing</a>
                     <a href="#contact" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300">Contact</a>
                 </div>
                 
                 <!-- CTA Button & Dark Mode Toggle -->
-                <div class="hidden md:flex items-center space-x-4">
+                <div class="hidden lg:flex items-center space-x-4">
                     <!-- Dark Mode Toggle -->
                     <button id="darkModeToggle" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 hover:scale-110 transform" title="Toggle dark mode">
                         <i class="fas fa-moon text-xl"></i>
@@ -158,16 +428,52 @@
                 </div>
                 
                 <!-- Mobile Menu Toggle -->
-                <button id="mobileMenuToggle" class="md:hidden text-gray-700 dark:text-gray-300 focus:outline-none hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 transform">
+                <button id="mobileMenuToggle" class="lg:hidden text-gray-700 dark:text-gray-300 focus:outline-none hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 transform">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
             
             <!-- Mobile Menu -->
-            <div id="mobileMenu" class="mobile-menu max-h-0 overflow-hidden md:hidden">
+            <div id="mobileMenu" class="mobile-menu max-h-0 overflow-hidden lg:hidden">
                 <div class="pt-4 pb-3 space-y-3">
                     <a href="#home" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium py-2 hover:pl-4 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg px-3">Home</a>
-                    <a href="#features" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium py-2 hover:pl-4 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg px-3">Features</a>
+                    
+                    <!-- Products Mobile Dropdown -->
+                    <div>
+                        <button onclick="toggleMobileDropdown('productsDropdown')" class="w-full text-left flex items-center justify-between text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium py-2 px-3 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-all duration-300">
+                            Products <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="productsDropdown" class="max-h-0 overflow-hidden transition-all duration-300 ml-4">
+                            <a href="#" class="block text-gray-600 dark:text-gray-400 py-2 px-3 hover:text-blue-600">Platform</a>
+                            <a href="#" class="block text-gray-600 dark:text-gray-400 py-2 px-3 hover:text-blue-600">Analytics</a>
+                            <a href="#" class="block text-gray-600 dark:text-gray-400 py-2 px-3 hover:text-blue-600">Integrations</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Features Mobile Dropdown -->
+                    <div>
+                        <button onclick="toggleMobileDropdown('featuresDropdown')" class="w-full text-left flex items-center justify-between text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium py-2 px-3 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-all duration-300">
+                            Features <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="featuresDropdown" class="max-h-0 overflow-hidden transition-all duration-300 ml-4">
+                            <a href="#features" class="block text-gray-600 dark:text-gray-400 py-2 px-3 hover:text-blue-600">Security</a>
+                            <a href="#features" class="block text-gray-600 dark:text-gray-400 py-2 px-3 hover:text-blue-600">Performance</a>
+                            <a href="#features" class="block text-gray-600 dark:text-gray-400 py-2 px-3 hover:text-blue-600">Collaboration</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Resources Mobile Dropdown -->
+                    <div>
+                        <button onclick="toggleMobileDropdown('resourcesDropdown')" class="w-full text-left flex items-center justify-between text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium py-2 px-3 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-all duration-300">
+                            Resources <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="resourcesDropdown" class="max-h-0 overflow-hidden transition-all duration-300 ml-4">
+                            <a href="#" class="block text-gray-600 dark:text-gray-400 py-2 px-3 hover:text-blue-600">Documentation</a>
+                            <a href="#" class="block text-gray-600 dark:text-gray-400 py-2 px-3 hover:text-blue-600">Blog</a>
+                            <a href="#" class="block text-gray-600 dark:text-gray-400 py-2 px-3 hover:text-blue-600">Help Center</a>
+                        </div>
+                    </div>
+                    
                     <a href="#pricing" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium py-2 hover:pl-4 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg px-3">Pricing</a>
                     <a href="#contact" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium py-2 hover:pl-4 transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg px-3">Contact</a>
                     <a href="#pricing" class="block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-semibold text-center mt-4 hover:scale-105 hover:shadow-lg transition-all duration-300 transform">
@@ -775,7 +1081,7 @@
     </footer>
 
     <!-- ============================================ -->
-    <!-- JAVASCRIPT - Mobile Menu & Dark Mode Toggle -->
+    <!-- JAVASCRIPT - Mobile Menu, Mega Menu & Dark Mode Toggle -->
     <!-- ============================================ -->
     <script>
         // Mobile Menu Toggle
@@ -789,6 +1095,16 @@
                 mobileMenu.style.maxHeight = '0px';
             }
         });
+        
+        // Toggle Mobile Dropdown
+        function toggleMobileDropdown(id) {
+            const dropdown = document.getElementById(id);
+            if (dropdown.style.maxHeight === '0px' || dropdown.style.maxHeight === '') {
+                dropdown.style.maxHeight = dropdown.scrollHeight + 'px';
+            } else {
+                dropdown.style.maxHeight = '0px';
+            }
+        }
         
         // Close mobile menu when clicking on a link
         const mobileLinks = mobileMenu.querySelectorAll('a');
